@@ -13,11 +13,12 @@ func main() {
 	http.HandleFunc("/form", formHandler)
 	http.HandleFunc("/hello", helloHandler)
 
-	os.Setenv("PORT", "8080")
+	//os.Setenv("PORT", "8080")
 	port := os.Getenv("PORT")
 
 	if port == "" {
-		log.Fatal("$PORT must be set")
+		//log.Fatal("$PORT must be set")
+		port = "8080"
 	}
 	log.Printf("Server started on port %s\n", port)
 	if err := http.ListenAndServe(":" + port, nil); err != nil {
